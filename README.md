@@ -1,9 +1,8 @@
 
-
 ![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
     
-# an algorithm to predict intrinsic terminators
+# Interpin : an algorithm to predict intrinsic terminators
 
 Interpin is an algorithm designed to predict intrinsic transcription terminators in bacterial genomes. 
 We have already created a database with the same name, where predictions from 12745 bacterial genomes are placed. It can be found at  [Interpin db](http://pallab.cds.iisc.ac.in/INTERPIN)
@@ -11,17 +10,19 @@ We have already created a database with the same name, where predictions from 12
 This document provides an easy installation guide for our algorithm. It can be used to make predictions for a single genome as well as run parallely on multiple genomes.
 
 # Pre- requisites
-1. Python3 (also install the following packages: matplotlib, biopython 1.78, multiprocessing, subprocess )
+1. Python3 (also install the following packages: matplotlib, biopython 1.78, multiprocessing, subprocess ). Anaconda / miniconda can be used for installation.
 2. Perl5
 3. Download and install edirect.sh
 Following command can be used:
 ```bash
   sh -c "$(wget -q ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh -O -)"
 ```
-After installation, you may edirect commands to bashrc file (to access the program from anywhere) or on command line (to use for that session). Following line may be used for both purposes:
+After installation, you may add edirect commands to bashrc file (to access the program from anywhere). Following line should be added:
 ```bash
   export PATH=${PATH}:$HOME/edirect
 ```
+The same line can be used as a command to add edirect temporarily to current session only.
+
 4. Download and install bacbio package (for initial genome file processing). Following command may be used:
 ```bash
   pip install bcbio-gff
@@ -33,6 +34,7 @@ Create a folder 'interpin'. Now create another folder 'program' inside it.
 All script codes must be placed inside this folder. 
 Follow the steps below to make hairpin predictions using the interpin algorithm:
 1. Make a list of bacteria for which you want to make hairpin predictions. Place the file in interpin folder, outside prog folder. 
+
 file name: baclist_temp.txt
 
 file format:
@@ -47,6 +49,31 @@ Note: Bacteria names and NCBI Id must be tab separated. Each line is record for 
 
 Note: In ncbi id please give the complete ncbi id along with the version eg. NC_014614.1: adding .1 is essebntial to get the correct file for program input.
 
+Note: Do not use any space or special case character in bacteria name. replace them by a '_' or '-'. eg: Acetobacter ascendens LMG 1590 to Acetobacter_ascendens_LMG_1590
+
+2. Now, run program inifiles_download.py. This will create a folder : interpin/genomes
+
+```bash
+  cd program
+  python inifiles_download.py n
+```
+here 'n' is the number of cores available for processing. For serial processing, use 'n=1'.
+
+3. Download Molquest for making operon prediction, which will be used for creating boundaries of transcription units. Download from here: [Molquest](http://www.molquest.com/molquest.phtml?topic=downloads)
+
+Note: The free trial for Molquest is currently only available for Windows and Mac users.
+
+Molquest takes fasta files as input. They can be taken from the required bacterial folder inside genomes folder. 
+As output, two files are given, take the 'results.txt' file and place this prediction in the same bacterial folder 
+from where fasta file was taken. This is the only file required from molquest.
+
+4. Download Mfold package for RNA foldings. Details about the software and installation intruction can be found here: [Mfold download](http://www.unafold.org/mfold/software/download-mfold.php) and [about](http://www.unafold.org/).
+5. Now, all the input files are ready and the main interpin code can be run. Use the command below:
+```bash
+  cd program
+  python interpin.py n
+```
+here 'n' is the number of cores available for processing. For serial processing, use 'n=1'.
 ## 🚀 About Me
 I'm a PhD student in the field of Computational biology at the Computational and Data sciences department, Indian Institute of Science.
 I have worked with protein, RNA and DNA sequences, structure and annotations, alignment, docking etc.
@@ -55,6 +82,14 @@ Currently I work with genomic data and find interesting patterns in them. I then
 
 
   
- 
+## Features
+
+- Can be run parallely on multiple genomes (number depends on cores available)
+- Takes 10-15 hours for a giving predictions, with 90% time taken by Mfold to make folded structures.
+- Cross platform
+- No bias for AT/ GC rich genomes
+- Predicts cluster as well as single hairpin. Cluster hairpin are novel type of hairpins given by the algorithm. 
+To know more about the study, you can check out our publication [here](https://www.nature.com/articles/s41598-021-95435-3)
+
 
   
