@@ -1,5 +1,3 @@
-
-
 ![Logo](https://github.com/swati375/interpin/blob/main/interpin_logo.png)
 
     
@@ -29,12 +27,12 @@ The same line can be used as a command to add edirect temporarily to current ses
   pip install bcbio-gff
 ```
 
-## Installation
+# Installation
 
 Create a folder 'interpin'. Now create another folder 'program' inside it. 
 All script codes must be placed inside this folder. 
 Follow the steps below to make hairpin predictions using the interpin algorithm:
-1. Make a list of bacteria for which you want to make hairpin predictions. Place the file in interpin folder, outside prog folder. 
+1. Make a list of bacteria for which you want to make hairpin predictions. Place the file in interpin folder, outside prog folder. A sample for this input file is given in the 'sample' folder. Also find the format below:
 
 file name: baclist.txt
 
@@ -85,9 +83,8 @@ Note: to see requirements of program and see short description of the program, u
 ```
 The final output is given in the form of a csv file, placed in the 'iden_hairpin' folder of each genome.
 
-## Sample files
-The sample files for each step are provided in the folder 'sample'.
-This would help understanding the format of input files if required. 
+## Output and sample files
+The sample files for each step are provided in the folder 'sample'. This would help understanding the format of input files if required. 
 
 As an example, I have run Intrepin codes on three bacterial genomes and placed them in the sample folder. The different folders formed, with the raw intermediate files are placed in these folders. 
 
@@ -105,7 +102,7 @@ The first row is a single hairpin at the end of operon [124, 1446] and is locate
 
 The second row is a cluster hairpin (with 3 constituent hairpins), at the end of operon [1572, 1498] and located at [1489, 1415] on the reverse strand, with energy -5.7 Kcal/mol.
 
-## Features
+# Features
 
 - Can be run parallely on multiple genomes (number depends on cores available)
 - Takes 10-15 hours for a giving predictions, with 90% time taken by Mfold to make folded structures.
