@@ -1,5 +1,5 @@
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://github.com/swati375/interpin/blob/main/interpin_logo.png)
 
     
 # Interpin : an algorithm to predict intrinsic terminators
@@ -35,7 +35,7 @@ All script codes must be placed inside this folder.
 Follow the steps below to make hairpin predictions using the interpin algorithm:
 1. Make a list of bacteria for which you want to make hairpin predictions. Place the file in interpin folder, outside prog folder. 
 
-file name: baclist_temp.txt
+file name: baclist.txt
 
 file format:
 
@@ -55,10 +55,14 @@ Note: Do not use any space or special case character in bacteria name. replace t
 
 ```bash
   cd program
-  python inifiles_download.py n
+  python inifiles_download.py --n num
 ```
-here 'n' is the number of cores available for processing. For serial processing, use 'n=1'.
+here 'num' is the number of cores available for processing. For serial processing, use 'n=1'.
 
+Note: to see requirements of program and see short description of the program, use the below command. 
+```bash
+  python inifiles_download.py -h
+```
 3. Download Molquest for making operon prediction, which will be used for creating boundaries of transcription units. Download from here: [Molquest](http://www.molquest.com/molquest.phtml?topic=downloads)
 
 Note: The free trial for Molquest is currently only available for Windows and Mac users.
@@ -70,18 +74,25 @@ from where fasta file was taken. This is the only file required from molquest.
 4. Download Mfold package for RNA foldings. Details about the software and installation intruction can be found here: [Mfold download](http://www.unafold.org/mfold/software/download-mfold.php) and [about](http://www.unafold.org/).
 5. Now, all the input files are ready and the main interpin code can be run. Use the command below:
 ```bash
-  cd program
-  python interpin.py n
+  python interpin.py --n num
 ```
-here 'n' is the number of cores available for processing. For serial processing, use 'n=1'.
-## 🚀 About Me
-I'm a PhD student in the field of Computational biology at the Computational and Data sciences department, Indian Institute of Science.
-I have worked with protein, RNA and DNA sequences, structure and annotations, alignment, docking etc.
+here 'num' is the number of cores available for processing. For serial processing, use 'n=1'.
 
-Currently I work with genomic data and find interesting patterns in them. I then try to find the underlying principles for those patterns.
+Note: to see requirements of program and see short description of the program, use the below command. 
+```bash
+  python interpin.py -h
+```
+The final output is given in the form of a csv file, placed in the 'iden_hairpin' folder of each genome.
 
+## sample files
+The sample files for each step are provided in the folder 'sample'.
+This would help understanding the format of input files if required. 
 
-  
+As an example, I have run Intrepin codes on three bacterial genomes and placed them in the sample folder. The different folders formed, with the raw intermediate files are placed in these folders. 
+
+See below image for explanation of output:
+![output]()
+
 ## Features
 
 - Can be run parallely on multiple genomes (number depends on cores available)
@@ -92,4 +103,13 @@ Currently I work with genomic data and find interesting patterns in them. I then
 To know more about the study, you can check out our publication [here](https://www.nature.com/articles/s41598-021-95435-3)
 
 
+  
+## 🚀 About Me
+I'm a PhD student in the field of Computational biology at the Computational and Data sciences department, Indian Institute of Science.
+I have worked with protein, RNA and DNA sequences, structure and annotations, alignment, docking etc.
+
+Currently I work with genomic data and find interesting patterns in them. I then try to find the underlying principles for those patterns.
+
+
+  
   
