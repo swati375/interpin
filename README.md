@@ -1,4 +1,5 @@
 
+
 ![Logo](https://github.com/swati375/interpin/blob/main/interpin_logo.png)
 
     
@@ -84,14 +85,25 @@ Note: to see requirements of program and see short description of the program, u
 ```
 The final output is given in the form of a csv file, placed in the 'iden_hairpin' folder of each genome.
 
-## sample files
+## Sample files
 The sample files for each step are provided in the folder 'sample'.
 This would help understanding the format of input files if required. 
 
 As an example, I have run Intrepin codes on three bacterial genomes and placed them in the sample folder. The different folders formed, with the raw intermediate files are placed in these folders. 
 
 See below image for explanation of output:
-![output]()
+![output](https://github.com/swati375/interpin/blob/main/prediction.JPG)
+
+The description columns in the output table is shown:
+
+| Operon coding start | operon coding end | Hairpin start | Hairpin end | energy  | Hairpin type | No. of constituent hairpin | strand |
+| :-------- | :------- | :------------------------- | :-------- | :------- | :------------- | :-------- | :----------|
+| 124 | 1446 | 1476 | 1487 | 0.8 | single | 1 | forward |
+|1572 | 1498 | 1489 | 1415 | -5.7 | cluster | 3 | reverse |
+
+The first row is a single hairpin at the end of operon [124, 1446] and is located at [1476, 1487] on the forward strand, with energy 0.8 Kcal/mol.
+
+The second row is a cluster hairpin (with 3 constituent hairpins), at the end of operon [1572, 1498] and located at [1489, 1415] on the reverse strand, with energy -5.7 Kcal/mol.
 
 ## Features
 
@@ -102,8 +114,7 @@ See below image for explanation of output:
 - Predicts cluster as well as single hairpin. Cluster hairpin are novel type of hairpins given by the algorithm. 
 To know more about the study, you can check out our publication [here](https://www.nature.com/articles/s41598-021-95435-3)
 
-
-  
+ 
 ## 🚀 About Me
 I'm a PhD student in the field of Computational biology at the Computational and Data sciences department, Indian Institute of Science.
 I have worked with protein, RNA and DNA sequences, structure and annotations, alignment, docking etc.
@@ -111,5 +122,5 @@ I have worked with protein, RNA and DNA sequences, structure and annotations, al
 Currently I work with genomic data and find interesting patterns in them. I then try to find the underlying principles for those patterns.
 
 
-  
+
   
