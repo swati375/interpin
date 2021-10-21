@@ -86,7 +86,7 @@ The final output is given in the form of a csv file, placed in the 'iden_hairpin
 ## Output and sample files
 The sample files for each step are provided in the folder 'sample'. This would help understanding the format of input files if required. 
 
-As an example, I have run Intrepin codes on three bacterial genomes and placed them in the sample folder. The different folders formed, with the raw intermediate files are placed in these folders. 
+As an example, I have run Intrepin codes on two bacterial genomes and placed them in the sample folder. The different folders formed, with the raw intermediate files are placed in these folders. Due to space restraints only 50 files from each strand showing fasta sequence and mfold output have been shown in folders 'fasta_op' and 'det_files'. Rest of the raw data is complete.
 
 See below image for explanation of output:
 ![output](https://github.com/swati375/interpin/blob/main/prediction.JPG)
