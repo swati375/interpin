@@ -3,12 +3,12 @@
     
 # Interpin : a database for prediction of intrinsic transcription terminators
 
-Interpin is an database that holds predictions for intrinsic transcription terminators aclled Hairpins in bacterial genomes. 
-We have already created a database with the same name, where predictions from 12745 bacterial genomes are placed. It can be found at  [Interpin db](http://pallab.cds.iisc.ac.in/INTERPIN)
+Interpin is an database that holds predictions for intrinsic transcription terminators called Hairpins in bacterial genomes. 
+The database has predictions from 12745 bacterial genomes are placed. It can be found at  [Interpin db](http://pallab.cds.iisc.ac.in/INTERPIN).
 
-This document provides an easy installation guide for our algorithm. It can be used to make predictions for a single genome as well as run parallely on multiple genomes.
+Here we provide the code used to make the predictions, along with this document that provides an easy installation guide for the same. The code can be used to make predictions for a single genome as well as run parallely on multiple genomes.
 
-# Pre- requisites
+# Prerequisites
 1. Python3 (also install the following packages: matplotlib, biopython 1.78, multiprocessing, subprocess ). Anaconda / miniconda can be used for installation.
 2. Perl5
 3. Download and install edirect.sh
@@ -110,6 +110,8 @@ The second row is a cluster hairpin (with 3 constituent hairpins), at the end of
 - No bias for AT/ GC rich genomes
 - Predicts cluster as well as single hairpin. Cluster hairpin are novel type of hairpins given by the algorithm. 
 To know more about the study, you can check out our publication [here](https://www.nature.com/articles/s41598-021-95435-3)
+
+If you use this code, please cite "Gupta, S., Pal, D. Clusters of hairpins induce intrinsic transcription termination in bacteria. Sci Rep 11, 16194 (2021). https://doi.org/10.1038/s41598-021-95435-3"
 
  
 ## 🚀 About Me
