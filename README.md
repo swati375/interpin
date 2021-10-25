@@ -1,9 +1,9 @@
 ![Logo](https://github.com/swati375/interpin/blob/main/interpin_logo.png)
 
     
-# Interpin : an algorithm to predict intrinsic terminators
+# Interpin : a database for prediction of intrinsic transcription terminators
 
-Interpin is an algorithm designed to predict intrinsic transcription terminators in bacterial genomes. 
+Interpin is an database that holds predictions for intrinsic transcription terminators aclled Hairpins in bacterial genomes. 
 We have already created a database with the same name, where predictions from 12745 bacterial genomes are placed. It can be found at  [Interpin db](http://pallab.cds.iisc.ac.in/INTERPIN)
 
 This document provides an easy installation guide for our algorithm. It can be used to make predictions for a single genome as well as run parallely on multiple genomes.
