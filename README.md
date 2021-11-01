@@ -1,8 +1,7 @@
 ![Logo](https://github.com/swati375/interpin/blob/main/interpin_logo.png)
 
     
-# Interpin : a database for prediction of intrinsic transcription terminators
-
+# Interpin : a repository for intrinsic transcription termination hairpins in bacteria
 Interpin is an database that holds predictions for intrinsic transcription terminators called Hairpins in bacterial genomes. 
 The database has predictions from 12745 bacterial genomes are placed. It can be found at  [Interpin db](http://pallab.cds.iisc.ac.in/INTERPIN).
 
