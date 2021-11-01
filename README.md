@@ -66,7 +66,7 @@ Note: to see requirements of program and see short description of the program, u
 
 Note: The free trial for Molquest is currently only available for Windows and Mac users.
 
-Molquest takes fasta files as input. They can be taken from the required bacterial folder inside genomes folder. 
+FgenesB annotator program from Molquest is to be used. This takes genome fasta file as input, which can be taken from the required bacterial folder inside genomes folder. 
 As output, two files are given, take the 'results.txt' file and place this prediction in the same bacterial folder 
 from where fasta file was taken. This is the only file required from molquest.
 
