@@ -53,7 +53,7 @@ def form_gbk(org,ncbid):
 	di=os.getcwd()
 	dir1=di+'/../genomes/'+org+'/'
 	s=ncbid.split('.')
-	cmd='python gff_to_genbank.py '+dir1+ncbid+'.gff '+dir1+s[0]+'.fasta'
+	cmd='python3 gff_to_genbank.py '+dir1+ncbid+'.gff '+dir1+s[0]+'.fasta'
 	# print(cmd)
 	os.system(cmd)
 	cmd='mv '+dir1+ncbid+'.gb '+dir1+s[0]+'.gbk'
