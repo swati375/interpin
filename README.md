@@ -43,7 +43,7 @@ bacteria1_name ncbiid
 bacteria2_name ncbiid
 ```
 
-Note: Bacteria names and NCBI Id must be tab separated. Each line is record for one genome and must end by a new line character('\n')
+Note: Bacteria names and NCBI Id must be tab separated. Each line is record for one genome and must end by a new line character('\n'). Please remove any empty line after the last bacteria as an empty line will cause error when running the program.
 
 Note: In ncbi id please give the complete ncbi id along with the version eg. NC_014614.1: adding .1 is essebntial to get the correct file for program input.
 
@@ -65,12 +65,15 @@ Note: to see requirements of program and see short description of the program, u
 
 Note: The free trial for Molquest is currently only available for Windows and Mac users.
 
-FgenesB annotator program from Molquest is to be used. This takes genome fasta file as input, which can be taken from the required bacterial folder inside genomes folder. 
-As output, two files are given, take the 'results.txt' file and place this prediction in the same bacterial folder 
-from where fasta file was taken. This is the only file required from molquest.
+Afer downloading Molquest, create a new project. Then select the FgenesB annotator module from the left side panel, by double clicking it. Now input genome fasta file as input, which can be taken from the required bacterial folder inside genomes folder.
 
-4. Download Mfold package for RNA foldings. Details about the software and installation intruction can be found here: [Mfold download](http://www.unafold.org/mfold/software/download-mfold.php) and [about](http://www.unafold.org/).
-5. Now, all the input files are ready and the main interpin code can be run. Use the command below:
+As output, two files are given. The results files or the folder can be found by clicking the file symbol that appears on main window after molquest run is complete. Take the 'results.txt' file and place this prediction in the same bacterial folder from where fasta file was takenThis is the only file required from molquest.
+
+4. Download Mfold package for RNA foldings. Details about the software and installation intruction can be found here: [Mfold download](http://www.unafold.org/mfold/software/download-mfold.php) and [about](http://www.unafold.org/). Also download the following package for Mfold.
+```bash
+  sudo apt-get install texlive-font-utils
+```
+6. Now, all the input files are ready and the main interpin code can be run. Use the command below:
 ```bash
   python interpin.py --n num
 ```
