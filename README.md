@@ -25,6 +25,7 @@ The same line can be used as a command to add edirect temporarily to current ses
 ```bash
   pip install bcbio-gff
 ```
+5. Download and install curl. Use [curllink](https://help.ubidots.com/en/articles/2165289-learn-how-to-install-run-curl-on-windows-macosx-linux) for installation instructions on desired system.
 
 # Installation
 
