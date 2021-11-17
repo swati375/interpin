@@ -70,7 +70,9 @@ Afer downloading Molquest, create a new project. Then select the FgenesB annotat
 
 As output, two files are given. The results files or the folder can be found by clicking the file symbol that appears on main window after molquest run is complete. Take the 'results.txt' file and place this prediction in the same bacterial folder from where fasta file was takenThis is the only file required from molquest.
 
-4. Download Mfold package for RNA foldings. Details about the software and installation intruction can be found here: [Mfold download](http://www.unafold.org/mfold/software/download-mfold.php) and [about](http://www.unafold.org/). Also download the following package for Mfold.
+4. Download Mfold package for RNA foldings. Details about the software and installation intruction can be found here: [Mfold download](http://www.unafold.org/mfold/software/download-mfold.php) and [about](http://www.unafold.org/). It is important to add mfold bin folder to path variables so that Mfold program can be called from our code. [Add to path link](https://www.studytonight.com/post/how-to-set-path-environment-variable) can be used as reference help for this.
+
+Also download the following package for Mfold.
 ```bash
   sudo apt-get install texlive-font-utils
 ```
