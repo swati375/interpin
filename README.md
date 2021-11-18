@@ -27,6 +27,8 @@ The same line can be used as a command to add edirect temporarily to current ses
 ```
 5. Download and install curl. Use [curllink](https://help.ubidots.com/en/articles/2165289-learn-how-to-install-run-curl-on-windows-macosx-linux) for installation instructions on desired system.
 
+Note: When installing these packages using pip, same version of pip should be used as python. Eg. pip3.6 should be used with python3.6 for all other package installations, pip3.7 with python 3.7 and so on.
+
 # Installation
 
 Create a folder 'interpin'. Now create another folder 'program' inside it. 
