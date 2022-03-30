@@ -41,6 +41,7 @@ def build_hp_for(org):
 	   		line=fil.readlines()
 	   		seq=line[1]
 	   	gi=file3[3:-4]
+		count_alpha=sum(c.isalpha() for c in file3[0:-4])
 	   	# print ("gi=",gi)
 	   	if gi not in gi_all:
 	   		print("NOOOO!!\n")
@@ -58,51 +59,54 @@ def build_hp_for(org):
 		   		hh1=[]
 		   		num_prev=-1
 		   		num=0
+				loop_c=0
 		   		for line in fil[3:]:
 		   			if(num_prev<num):
-			   			if 'External closing pair' in line:
+			   			if ('External closing pair' in line) and ('Interior' not in line):
 			   				ene=re.match(r'.* is [AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)\-[UACGTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)',line)
-			   				stem_start=int(ene.group(1))
-			   				stem_stop=int(ene.group(2))
+			   				stem_start=int(ene.group(1))-count_alpha
+			   				stem_stop=int(ene.group(2))-count_alpha
 			   				st=stem_start-20
 			   				en=stem_stop-20
 			   				start.append(st)
 			   				stop.append(en)
+							loop_c+=1
 			   			if 'Helix' in line:
 			   				ene=re.match(r'.*ddG =\s*(\-\d+\.\d+|\d+\.\d+)\s+.*',line)
 			   				eng_stem=float(ene.group(1))
 			   			if 'Hairpin loop' in line:
-			   				ene=re.match(r'.*ddG =\s+(\-\d+\.\d+|\d+\.\d+)\s+Closing pair is [AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)\-[AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)',line)
-			   				count+=1
-			   				stt=int(ene.group(2))-20
-			   				end=int(ene.group(3))-20
-			   				eng_bulb=float(ene.group(1))
-			   				bulb_stt=int(ene.group(2))
-			   				bulb_stp=int(ene.group(3))
-			   				total_no+=1
-			   				hairpin_loop1=seq[stem_start-1:bulb_stt]
-			   				hairpin_loop2=seq[bulb_stt:bulb_stp-1]
-			   				hairpin_loop3=seq[bulb_stp-1:stem_stop]
-			   				hairpin_loop=hairpin_loop1+"("+hairpin_loop2+")"+hairpin_loop3
-			   				hairpin_loopx=hairpin_loop1+hairpin_loop2+hairpin_loop3
-			   				hairpin_length=len(hairpin_loop)-2
-			   				if 'eng_stem' in locals():
-				   				dummy = eng_stem+eng_bulb
-				   				total_eng=float(dummy)
-				   				total_energy.append(total_eng)
-				   				hair_eng.append(total_eng)
-				   				sum_a+=float(total_eng)
-				   				hh_all=[[start[i],stop[i]] for i in range(len(start))]
-				   				hh_all=sorted(hh_all)
-				   				hh=[row[0] for row in hh_all]
-				   				hh1=[row[1] for row in hh_all]
-				   				if(count == 1):
-				   					st_num=num+1
-				   					w.write("******************************structure="+str(st_num)+"********************************************\n")
-				   					w.write(" _______________________________________________________________________________________________________________________\n")
-				   					w.write( " Start\tStop\tHairpin loop\tLength\tEnergy\n")
-				   					w.write(" ________________________________________________________________________________________________________________________\n")
-				   				w.write(str(st)+"\t"+str(en)+'\t'+hairpin_loop+"\t"+str(hairpin_length)+"\t"+str(total_eng)+"\n")
+							if (loop_c>1):
+								ene=re.match(r'.*ddG =\s+(\-\d+\.\d+|\d+\.\d+)\s+Closing pair is [AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)\-[AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)',line)
+								count+=1
+								stt=int(ene.group(2))-20-count_alpha
+								end=int(ene.group(3))-20-count_alpha
+								eng_bulb=float(ene.group(1))
+								bulb_stt=int(ene.group(2))-count_alpha
+								bulb_stp=int(ene.group(3))-count_alpha
+								total_no+=1
+								hairpin_loop1=seq[stem_start-1:bulb_stt]
+								hairpin_loop2=seq[bulb_stt:bulb_stp-1]
+								hairpin_loop3=seq[bulb_stp-1:stem_stop]
+								hairpin_loop=hairpin_loop1+"("+hairpin_loop2+")"+hairpin_loop3
+								hairpin_loopx=hairpin_loop1+hairpin_loop2+hairpin_loop3
+								hairpin_length=len(hairpin_loop)-2
+								if 'eng_stem' in locals():
+									dummy = eng_stem+eng_bulb
+									total_eng=float(dummy)
+									total_energy.append(total_eng)
+									hair_eng.append(total_eng)
+									sum_a+=float(total_eng)
+									hh_all=[[start[i],stop[i]] for i in range(len(start))]
+									hh_all=sorted(hh_all)
+									hh=[row[0] for row in hh_all]
+									hh1=[row[1] for row in hh_all]
+									if(count == 1):
+										st_num=num+1
+										w.write("******************************structure="+str(st_num)+"********************************************\n")
+										w.write(" _______________________________________________________________________________________________________________________\n")
+										w.write( " Start\tStop\tHairpin loop\tLength\tEnergy\n")
+										w.write(" ________________________________________________________________________________________________________________________\n")
+									w.write(str(st)+"\t"+str(en)+'\t'+hairpin_loop+"\t"+str(hairpin_length)+"\t"+str(total_eng)+"\n")
 			   			if 'Structure' in line:
 			   				num_prev=num
 			   				ene=re.match(r'Structure\s+(\d+)',line)
