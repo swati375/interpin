@@ -75,9 +75,10 @@ def build_hp_for(org):
 			   				ene=re.match(r'.*ddG =\s*(\-\d+\.\d+|\d+\.\d+)\s+.*',line)
 			   				eng_stem=float(ene.group(1))
 			   			if 'Hairpin loop' in line:
-							if (loop_c>1):
+							if (loop_c>0):
 								ene=re.match(r'.*ddG =\s+(\-\d+\.\d+|\d+\.\d+)\s+Closing pair is [AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)\-[AUGCTYRMKSWVBDHXYZaugctyrmkswvbdhxyz]\(\s+(\d+)\)',line)
 								count+=1
+								loop_c=0
 								stt=int(ene.group(2))-20-count_alpha
 								end=int(ene.group(3))-20-count_alpha
 								eng_bulb=float(ene.group(1))
